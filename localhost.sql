@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2014 at 03:33 PM
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Generation Time: Nov 08, 2014 at 11:19 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `Bank`
+-- Database: `bank`
 --
+CREATE DATABASE IF NOT EXISTS `bank` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `bank`;
 
 DELIMITER $$
 --
@@ -37,10 +39,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `CustLogin`
+-- Table structure for table `custlogin`
 --
 
-CREATE TABLE IF NOT EXISTS `CustLogin` (
+CREATE TABLE IF NOT EXISTS `custlogin` (
   `CustId` int(11) NOT NULL,
   `Username` varchar(20) NOT NULL,
   `Password` varchar(20) NOT NULL,
@@ -48,10 +50,10 @@ CREATE TABLE IF NOT EXISTS `CustLogin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `CustLogin`
+-- Dumping data for table `custlogin`
 --
 
-INSERT INTO `CustLogin` (`CustId`, `Username`, `Password`) VALUES
+INSERT INTO `custlogin` (`CustId`, `Username`, `Password`) VALUES
 (1, 'cust1', 'pass1'),
 (2, 'cust2', 'pass2'),
 (3, 'cust3', 'pass3'),
@@ -60,10 +62,10 @@ INSERT INTO `CustLogin` (`CustId`, `Username`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Customer`
+-- Table structure for table `customer`
 --
 
-CREATE TABLE IF NOT EXISTS `Customer` (
+CREATE TABLE IF NOT EXISTS `customer` (
   `CustId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(40) NOT NULL,
   `Balance` int(10) NOT NULL,
@@ -71,10 +73,10 @@ CREATE TABLE IF NOT EXISTS `Customer` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `Customer`
+-- Dumping data for table `customer`
 --
 
-INSERT INTO `Customer` (`CustId`, `Name`, `Balance`) VALUES
+INSERT INTO `customer` (`CustId`, `Name`, `Balance`) VALUES
 (1, 'Customer1', 12000),
 (2, 'Customer2', 24342),
 (3, 'Customer3', 15000),
@@ -83,20 +85,20 @@ INSERT INTO `Customer` (`CustId`, `Name`, `Balance`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Dept`
+-- Table structure for table `dept`
 --
 
-CREATE TABLE IF NOT EXISTS `Dept` (
+CREATE TABLE IF NOT EXISTS `dept` (
   `DeptId` int(11) NOT NULL AUTO_INCREMENT,
   `DeptName` varchar(20) NOT NULL,
   PRIMARY KEY (`DeptId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
--- Dumping data for table `Dept`
+-- Dumping data for table `dept`
 --
 
-INSERT INTO `Dept` (`DeptId`, `DeptName`) VALUES
+INSERT INTO `dept` (`DeptId`, `DeptName`) VALUES
 (31, 'loan'),
 (32, 'cash'),
 (33, 'customer_service'),
@@ -105,10 +107,10 @@ INSERT INTO `Dept` (`DeptId`, `DeptName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `EmpLogin`
+-- Table structure for table `emplogin`
 --
 
-CREATE TABLE IF NOT EXISTS `EmpLogin` (
+CREATE TABLE IF NOT EXISTS `emplogin` (
   `EmpId` int(11) NOT NULL,
   `Username` varchar(20) NOT NULL,
   `Password` varchar(20) NOT NULL,
@@ -117,10 +119,10 @@ CREATE TABLE IF NOT EXISTS `EmpLogin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `EmpLogin`
+-- Dumping data for table `emplogin`
 --
 
-INSERT INTO `EmpLogin` (`EmpId`, `Username`, `Password`, `loggedIn`) VALUES
+INSERT INTO `emplogin` (`EmpId`, `Username`, `Password`, `loggedIn`) VALUES
 (11, 'emp11', 'pass11', 1),
 (12, 'emp12', 'pass12', 0),
 (13, 'emp13', 'pass13', 0),
@@ -129,10 +131,10 @@ INSERT INTO `EmpLogin` (`EmpId`, `Username`, `Password`, `loggedIn`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Employee`
+-- Table structure for table `employee`
 --
 
-CREATE TABLE IF NOT EXISTS `Employee` (
+CREATE TABLE IF NOT EXISTS `employee` (
   `EmpId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(40) NOT NULL,
   `DeptId` int(10) NOT NULL,
@@ -142,10 +144,10 @@ CREATE TABLE IF NOT EXISTS `Employee` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
--- Dumping data for table `Employee`
+-- Dumping data for table `employee`
 --
 
-INSERT INTO `Employee` (`EmpId`, `Name`, `DeptId`) VALUES
+INSERT INTO `employee` (`EmpId`, `Name`, `DeptId`) VALUES
 (11, 'Employee1', 0),
 (12, 'Employee2', 0),
 (13, 'Employee3', 0),
@@ -154,21 +156,35 @@ INSERT INTO `Employee` (`EmpId`, `Name`, `DeptId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Job`
+-- Table structure for table `job`
 --
 
-CREATE TABLE IF NOT EXISTS `Job` (
+CREATE TABLE IF NOT EXISTS `job` (
   `JobId` int(11) NOT NULL AUTO_INCREMENT,
   `CustId` int(11) NOT NULL,
   `AssignedEmpId` int(11) NOT NULL,
-  `InTime` time NOT NULL,
-  `OutTime` time NOT NULL,
+  `InTime` varchar(20) NOT NULL,
+  `OutTime` varchar(20) NOT NULL,
   `Pan` varchar(10) NOT NULL,
   `DeptId` int(10) NOT NULL,
   PRIMARY KEY (`JobId`),
   KEY `DeptId` (`DeptId`),
   KEY `DeptId_2` (`DeptId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `job`
+--
+
+INSERT INTO `job` (`JobId`, `CustId`, `AssignedEmpId`, `InTime`, `OutTime`, `Pan`, `DeptId`) VALUES
+(1, 1, 11, '00:00:00', '00:00:00', '', 0),
+(2, 1, 11, '00:00:00', '00:00:00', '', 0),
+(3, 1, 11, '00:00:00', '00:00:00', '', 0),
+(4, 1, 11, '00:00:00', '00:00:00', '', 0),
+(5, 1, 11, '00:00:00', '00:00:00', '', 0),
+(6, 1, 11, '00:00:00', '00:00:00', '', 0),
+(7, 1, 11, '00:00:00', '00:00:00', '', 32),
+(8, 1, 11, '10am', '10am', '', 32);
 
 -- --------------------------------------------------------
 
@@ -829,16 +845,18 @@ INSERT INTO `pligg_widgets` (`id`, `name`, `version`, `latest_version`, `folder`
 --
 
 --
--- Constraints for table `CustLogin`
+-- Constraints for table `custlogin`
 --
-ALTER TABLE `CustLogin`
-  ADD CONSTRAINT `CustLogin_ibfk_1` FOREIGN KEY (`CustId`) REFERENCES `Customer` (`CustId`);
+ALTER TABLE `custlogin`
+  ADD CONSTRAINT `CustLogin_ibfk_1` FOREIGN KEY (`CustId`) REFERENCES `customer` (`CustId`),
+  ADD CONSTRAINT `custlogin_ibfk_1` FOREIGN KEY (`CustId`) REFERENCES `customer` (`CustId`);
 
 --
--- Constraints for table `EmpLogin`
+-- Constraints for table `emplogin`
 --
-ALTER TABLE `EmpLogin`
-  ADD CONSTRAINT `EmpLogin_ibfk_1` FOREIGN KEY (`EmpId`) REFERENCES `Employee` (`EmpId`);
+ALTER TABLE `emplogin`
+  ADD CONSTRAINT `EmpLogin_ibfk_1` FOREIGN KEY (`EmpId`) REFERENCES `employee` (`EmpId`),
+  ADD CONSTRAINT `emplogin_ibfk_1` FOREIGN KEY (`EmpId`) REFERENCES `employee` (`EmpId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
