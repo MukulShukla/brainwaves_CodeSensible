@@ -17,55 +17,57 @@
     android:gravity="center"
     android:textStyle="bold"
     />
-<TextView 
-	android:id="@+id/tv1"
-	android:textSize="18dp"  
-    android:layout_width="fill_parent" 
-    android:gravity="center"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_height="wrap_content" 
-    android:text="Username"
-    />
+
 <EditText 
 	android:text="" 
 	android:id="@+id/username" 
 	android:gravity="center"
+	android:hint="Enter Username"
 	android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-	android:layout_width="fill_parent" 
+	android:layout_width="wrap_content" 
 	android:layout_height="wrap_content"
+	android:layout_gravity="center"
+        android:ems="10"
 	android:singleLine="true">
 </EditText>
-<TextView 
-	android:id="@+id/tv2"
-	android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp" 
-    android:textSize="18dp"
-	android:gravity="center" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="Password"
-    />
-<EditText 
-	android:text="" 
-	android:id="@+id/password" 
-	android:gravity="center"
-	android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-	android:layout_width="fill_parent" 
-	android:layout_height="wrap_content"
-	android:singleLine="true">
-</EditText>
+
+
+ <EditText
+        android:id="@+id/password"
+        android:hint="Enter Password"
+        android:gravity="center"
+        android:singleLine="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/username"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPassword" >
+        
+    </EditText>
+    <CheckBox
+        android:id="@+id/cbShowPwd"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+     
+        android:text="Show Password" />
 <Button 
 	android:text="Login" 
 	android:id="@+id/Button01" 
-	android:gravity="center"
+	android:layout_gravity="center"
 	android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-	android:layout_width="fill_parent" 
+	android:layout_width="wrap_content" 
 	android:layout_height="wrap_content">
 </Button>
+
 <TextView 
 	android:id="@+id/tv" 
 	android:gravity="center" 

@@ -1,3 +1,6 @@
+{************************************
+********* Header Template ***********
+*************************************}
 <!-- header.tpl -->
 <header role="banner" class="navbar navbar-inverse navbar-fixed-top custom_header">
 	<div class="container">
@@ -13,6 +16,8 @@
 		<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li {if $pagename eq "published" || $pagename eq "index"}class="active"{/if}><a href="{$my_base_url}{$my_pligg_base}">{#PLIGG_Visual_Home#}</a></li>
+				{checkActionsTpl location="tpl_pligg_navbar_start"}
+				<li {if $pagename eq "new"}class="active"{/if}><a href="{$URL_new}">{#PLIGG_Visual_Pligg_Queued#}</a></li>
 				{checkActionsTpl location="tpl_pligg_submit_link_start"}
 				<li {if $pagename eq "submit"}class="active"{/if}><a href="{$URL_submit}">{#PLIGG_Visual_Submit_A_New_Story#}</a></li>
 				{checkActionsTpl location="tpl_pligg_submit_link_end"}
@@ -47,7 +52,6 @@
 				{if isset($isadmin) && $isadmin eq 1}
 					<li><a href="{$URL_admin}"><span>{#PLIGG_Visual_Header_AdminPanel#}</span></a></li>
 				{/if}
-<li style='padding-top:6px ; padding-left: 50px; '>{include file=$the_template."/search_box_top.tpl"}</li>
 			</ul>
 			{*
 			<script type="text/javascript">
@@ -56,7 +60,7 @@
 				{/if}
 				var some_search='{$searchboxtext}';
 			</script>
-			<form action="{$my_pligg_base}/search.php" method="get" name="thisform-search" id="thisform-search" class="navbar-form navbar-left custom_nav_search" role="search" {if $urlmethod==2}onsubmit='document.location.href="{$my_base_url}{$my_pligg_base}/search/"+this.search.value.replace(///g,"|").replace(/?/g,"%3F"); return false;'{/if}>
+			<form action="{$my_pligg_base}/search.php" method="get" name="thisform-search" id="thisform-search" class="navbar-form navbar-left custom_nav_search" role="search" {if $urlmethod==2}onsubmit='document.location.href="{$my_base_url}{$my_pligg_base}/search/"+this.search.value.replace(/\//g,"|").replace(/\?/g,"%3F"); return false;'{/if}>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search" tabindex="20" name="search" value="{$searchboxtext}" onfocus="if(this.value == some_search) {ldelim}this.value = '';{rdelim}" onblur="if (this.value == '') {ldelim}this.value = some_search;{rdelim}"/>
 				</div>

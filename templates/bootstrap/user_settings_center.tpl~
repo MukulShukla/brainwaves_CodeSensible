@@ -34,7 +34,10 @@
 						<td><label for="name" accesskey="1">{#PLIGG_Visual_User_Profile_PublicEmail#}:</label></td>
 						<td><input type="text" class="form-control" name="public_email" id="public_email" tabindex="5" value="{$user_publicemail}"></td>
 					</tr>
-					
+					<tr>
+						<td><label for="name" accesskey="1">{#PLIGG_Visual_User_Profile_Homepage#}:</label></td>
+						<td><input type="text" class="form-control" name="url" id="url" tabindex="7" value="{$user_url}"></td>
+					</tr>
 					<tr>
 						<td><label for="name" accesskey="1">{#PLIGG_Visual_Profile_RealName#}:</label></td>
 						<td><input type="text" class="form-control" name="names" id="names" tabindex="1" value="{$user_names}"></td>

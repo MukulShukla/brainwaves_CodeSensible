@@ -1,5 +1,6 @@
 package com.codesensible.sggsc;
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -8,6 +9,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
@@ -18,9 +20,13 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +34,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	Button b;
 	EditText et,pass;
+	CheckBox mCbShowPwd;
 	TextView tv;
 	HttpPost httppost;
 	StringBuffer buffer;
@@ -46,6 +53,26 @@ public class MainActivity extends Activity {
         pass= (EditText)findViewById(R.id.password);
         tv = (TextView)findViewById(R.id.tv);
         
+       
+        // get the show/hide password Checkbox
+        mCbShowPwd = (CheckBox) findViewById(R.id.cbShowPwd);
+        
+        // add onCheckedListener on checkbox
+        // when user clicks on this checkbox, this is the handler.
+        mCbShowPwd.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // checkbox status is changed from uncheck to checked.
+                if (!isChecked) {
+                        // show password
+                	pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                } else {
+                        // hide password
+                	pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+            }
+        });
+    
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
