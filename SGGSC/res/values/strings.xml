@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SGGSC</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+<string name="country_prompt">Choose Category</string>
+    <string-array name="country_array">
+        <item>loan</item>
+        <item>cash</item>
+        <item>customer_service</item>
+        <item>account</item>
+        
+        
+    </string-array>
+    <string name="animal_prompt">Choose your Timing</string>
+</resources>

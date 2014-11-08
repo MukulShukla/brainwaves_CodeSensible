@@ -1,5 +1,5 @@
 <?php
-$dbhost = 'localhost:3036';
+$dbhost = 'localhost:3306';
 $dbuser = 'root';
 $dbpass = '';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -7,14 +7,14 @@ if(! $conn )
 {
   die('Could not connect: ' . mysql_error());
 }
-$u=$_GET['username'];
-if ($_GET['type']=="c")
+$u=$_POST['username'];
+if ($_POST['type']=="c")
 {
-$sql = "SELECT Password from CustLogin where Username='$u'";
+$sql = "SELECT Password, CustId from CustLogin where Username='$u'";
 }
 else 
 {
-$sql = "SELECT Password from EmpLogin where Username='$u'";
+$sql = "SELECT Password, CustId from EmpLogin where Username='$u'";
 }
 
 mysql_select_db('Bank');
@@ -25,10 +25,10 @@ if(! $retval )
 }
 while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
 {
-   if ($_GET['password']==$row['Password'])
+   if ($_POST['password']==$row['Password'])
 {
-echo "true";
-if ($_GET['type']!="c")
+echo $row['CustId'];
+if ($_POST['type']!="c")
 {
 
 $sql = "UPDATE `EmpLogin` SET `loggedIn`=1 WHERE username='$u'";
