@@ -1,7 +1,4 @@
-{************************************
-***** User Navigation Template ******
- This template controls the navigation area on user profile pages.
-*************************************}
+
 <!-- user_navigation.tpl -->
 
 {***********************************************************************************}
@@ -151,7 +148,7 @@
 			{/if}
 			{checkActionsTpl location="tpl_user_profile_social_end"}
 		</div>
-		{checkActionsTpl location="tpl_show_extra_profile"}
+		
 
 		{if $Allow_Friends}
 			<div class="btn-group user_followers">

@@ -53,42 +53,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class=" masonry_wrapper">
-			<table class="table table-bordered table-striped">	
-				<thead class="table_title">
-					<tr>
-						<th colspan="2">{#PLIGG_User_Profile_Social#}</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><label for="name" accesskey="1">{#PLIGG_Visual_User_Profile_Skype#}:</label></td>
-						<td><input type="text" class="form-control" name="skype" id="skype" tabindex="10" value="{$user_skype}"></td>
-					</tr>
-					
-					<tr>
-						<td><label for="name" accesskey="1">{#PLIGG_User_Profile_Facebook#}:</label></td>
-						<td><input type="text" class="form-control" name="facebook" id="facebook" tabindex="2" value="{$user_facebook}"></td>
-					</tr>
-					<tr>
-						<td><label for="name" accesskey="1">{#PLIGG_User_Profile_Twitter#}:</label></td>
-						<td><input type="text" class="form-control" name="twitter" id="twitter" tabindex="4" value="{$user_twitter}"></td>
-					</tr>
-					<tr>
-						<td><label for="name" accesskey="1">{#PLIGG_User_Profile_Linkedin#}:</label></td>
-						<td><input type="text" class="form-control" name="linkedin" id="linkedin" tabindex="6" value="{$user_linkedin}"></td>
-					</tr>
-					<tr>
-						<td><label for="name" accesskey="1">{#PLIGG_User_Profile_Googleplus#}:</label></td>
-						<td><input type="text" class="form-control" name="googleplus" id="googleplus" tabindex="8" value="{$user_googleplus}"></td>
-					</tr>
-					<tr>
-						<td><label for="name" accesskey="1">{#PLIGG_User_Profile_Pinterest#}:</label></td>
-						<td><input type="text" class="form-control" name="pinterest" id="pinterest" tabindex="12" value="{$user_pinterest}"></td>	
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		
 		{checkActionsTpl location="tpl_pligg_profile_settings_start"}		
 		<div class=" masonry_wrapper">
 			<table class="table table-bordered table-striped">

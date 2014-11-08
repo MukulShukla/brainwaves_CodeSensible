@@ -1,6 +1,20 @@
 {if $maintenance_mode eq "true" && $user_level neq 'admin'}{include file=$the_template"/maintenance.tpl"}{else}<!DOCTYPE html>
+{if $pagename eq 'index'}
+    {php}
+        if(!isset($_COOKIE['PliggWelcome'])){
+            setcookie("PliggWelcome", "visited");
+            // Change this line to point to your welcome page...
+            echo '<meta http-equiv="REFRESH" content="0;url=one/index.html">';
+            exit;
+        }else{
+            // echo "No cookie was found.. Continue loading page"; 
+        }   
+    {/php}
+{/if}
 <html class="no-js" dir="{#PLIGG_Visual_Language_Direction#}" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+
+
 	{checkActionsTpl location="tpl_pligg_head_start"}
 	
 	<!-- START META -->
@@ -89,6 +103,7 @@
 	<div class="container">
 		<section id="maincontent">
 			<div class="row">
+			
 				{checkActionsTpl location="tpl_pligg_banner_top"}
 			{if $pagename eq "submit" || $pagename eq "user" || $pagename eq "profile" || $pagename eq "user_edit" || $pagename eq "register" || $pagename eq "login"}
 				<div class="col-md-12">

@@ -30,13 +30,8 @@
 	<input type="hidden" name="id" value="{$submit_id}" />
 	{$hidden_token_edit_link}
 	<legend>{#PLIGG_Visual_EditStory_Header#}: {$submit_title}</legend>
-	<strong>{#PLIGG_Visual_Submit2_NewsURL#}: </strong>
-	&nbsp;<a href="{$submit_url}">{$submit_url}</a>
-	{if $isAdmin eq 1}
-		<br />
-		<input type="text" name="url" id="url" class="form-control col-md-6" {if $submit_url neq "http://" && $submit_url neq ""} value ="{$submit_url}"{else} placeholder="http://"{/if}>
-	{/if}
-	<br />
+	
+	
 	{* 
 		<strong for="url_title" accesskey="2">{#PLIGG_Visual_Submit2_URLTitle#}: </strong>{$submit_url_title} 
 		<hr />

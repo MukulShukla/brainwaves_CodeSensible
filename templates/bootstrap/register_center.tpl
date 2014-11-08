@@ -69,11 +69,17 @@
 	</div><!--/.register-left -->
 	<div class="col-md-8 register-right">
 		<h2>{#PLIGG_Visual_Register_Description_Title#}</h2>
-		<p>{#PLIGG_Visual_Register_Description_Paragraph#}
+		<h4>Being Social is a online social networking platform for civic action. The site uses the power of the internet to 
+connect people nationally, and helps them discuss and act on their civic issues. By helping people come together and collaborate 
+as an online community, it transforms citizens into change agents.Fixing our drains, our roads, our garbage, our water, our traffic, therefore, 
+is fixing the nuts and bolts of our democracy. It takes the ideals of democracy into the realm of concrete action. 
+And this is what Being Social is all about; active citizenship to facilitate action, and to bring about change on the ground. 
+Don't just read the problems, opinion.
+submit your own if you have. By registering you unlock special privileges reserved for members such as...<br>
 			<ul>
 				{#PLIGG_Visual_Register_Description_Points#}
 			</ul>
-		</p>
+		</h4>
 	</div>
 	{checkActionsTpl location="tpl_pligg_register_end"}
 </div><!--/.register-wrapper -->

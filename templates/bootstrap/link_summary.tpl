@@ -26,6 +26,7 @@
 			
 		</div>		
 	{/if}
+	
 	{checkActionsTpl location="tpl_pligg_story_start"}
 	<div class="story_data">
 		{if $Voting_Method eq 2}
@@ -171,6 +172,7 @@
 						</span>
 					</span>
 				{/if}
+				
 				{checkActionsTpl location="tpl_pligg_story_tools_end"}
 				<iframe height="0" width="0" frameborder="0" name="story_status" class="invisible"></iframe>
 				<span id="stories_status-{$link_shakebox_index}" style="display:none;">
@@ -198,9 +200,9 @@
 						{$story_content|nl2br}
 					{/if}
 				{/if}
-				{* 
-				{if $Enable_Extra_Field_1 eq 1}{if $link_field1 neq ""}<br/><b>{$Field_1_Title}:</b> {$link_field1}{/if}{/if}
-				{if $Enable_Extra_Field_2 eq 1}{if $link_field2 neq ""}<br/><b>{$Field_2_Title}:</b> {$link_field2}{/if}{/if}
+				
+				{if $Enable_Extra_Field_1 eq 1}{if $link_field1 neq ""}<br/><b>Location:</b> {$link_field1}{/if}{/if}
+				{*if $Enable_Extra_Field_2 eq 1}{if $link_field2 neq ""}<br/><b>{$Field_2_Title}:</b> {$link_field2}{/if}{/if}
 				{if $Enable_Extra_Field_3 eq 1}{if $link_field3 neq ""}<br/><b>{$Field_3_Title}:</b> {$link_field3}{/if}{/if}
 				{if $Enable_Extra_Field_4 eq 1}{if $link_field4 neq ""}<br/><b>{$Field_4_Title}:</b> {$link_field4}{/if}{/if}
 				{if $Enable_Extra_Field_5 eq 1}{if $link_field5 neq ""}<br/><b>{$Field_5_Title}:</b> {$link_field5}{/if}{/if}

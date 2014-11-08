@@ -14,7 +14,7 @@
 	{if $pagename eq "recover"}<li class="active">{#PLIGG_Visual_Breadcrumb_Recover_Password#}</li>{/if}
 	{if $pagename eq "register"}<li class="active">{#PLIGG_Visual_Register#}</li>{/if}
 	{if $pagename eq "editlink"}<li><a href="{$my_base_url}{$my_pligg_base}/story.php?id={$submit_id}">{$submit_title}</a></li><li class="active">{#PLIGG_Visual_LS_Admin_Edit#}</li>{/if}
-	{if $pagename eq "rssfeeds"}<li class="active">{#PLIGG_Visual_RSS_Feeds#}</li>{/if}
+	
 	{if $pagename eq "topusers"}<li class="active">{#PLIGG_Visual_TopUsers_Statistics#}</li>{/if}
 	{if $pagename eq "cloud"}<li class="active">{#PLIGG_Visual_Tags_Tags#}</li>{/if}
 	{if $pagename eq "live"}<li class="active">{#PLIGG_Visual_Live#}</li>{/if}
@@ -32,7 +32,7 @@
 			<li>{#PLIGG_Visual_User_Search_Users#}</li>
 		{else}
 			<li>{if $user_view neq 'profile'}<a href="{$user_url_personal_data2}">{/if}{$username}{if $user_view neq 'profile'}</a></li> {/if}
-			{if $user_view neq 'profile'}<li class="active">{$page_header} <a href="{$user_rss, $view_href}" target="_blank"><i class="fa fa-rss-square opacity_reset" style="color:#EEA639;"></i></a></li>{/if}
+			{if $user_view neq 'profile'}<li class="active">{$page_header} </li>{/if}
 		{/if}
 	{/if}
 	{if $pagename eq "published" && $get.category eq '' || $pagename eq "index"}<li class="active">{#PLIGG_Visual_Published_News#}{/if}
